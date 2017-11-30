@@ -1,0 +1,104 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tiny, opensource, Bulma WYSIWYG rich text editor</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.0/css/bulma.min.css" integrity="sha256-HEtF7HLJZSC3Le1HcsWbz1hDYFPZCqDhZa9QsCgVUdw=" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdn.rawgit.com/jesobreira/bulma-wysiwyg/dde4eb0e/css/bulma-wysiwyg.css">
+  <style type="text/css">
+    html,body {
+      font-family: 'Open Sans';
+    }
+  </style>
+</head>
+<body>
+  <a href="https://github.com/jesobreira/bulma-wysiwyg/"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"></a>
+  <section class="hero is-light">
+    <div class="hero-body">
+      <div class="container">
+        <h1 class="title">
+          bulma-wysiwyg <span class="tag is-warning">work in progress</span>
+        </h1>
+        <h2 class="subtitle">
+          tiny wysiwyg rich text editor for Bulma<br>
+          based on <a href="https://mindmup.github.io/bootstrap-wysiwyg/" target="_blank">bootstrap-wysiwyg</a>
+        </h2>
+        <hr>
+        <textarea id="editor">Go ahead...</textarea>
+      </div>
+    </div>
+  </section>
+  <div class="container">
+    <div class="columns">
+      <div class="column">
+        <h1 class="title">About</h1>
+        <p>This <a href="https://github.com/jesobreira/bulma-wysiwyg/blob/master/js/bulma-wysiwyg.js" target="_blank">tiny
+          (5 KB, < 100 lines) pure Javascript Bulma plugin</a> turns any TEXTAREA into a WYSIWYG rich-content editor, inspired
+          by <a href="https://mindmup.github.io/bootstrap-wysiwyg/" target="_blank">bootstrap-wysiwyg</a>. Here are the
+          key features:</p>
+        <ul>
+          <li>Does not force any styling - it's all up to you</li>
+          <li>Uses standard browser features, no magic non-standard code</li>
+          <li>Does not create a separate frame, work over divs etc - instead keeps it simple and saves the content on your TEXTAREA</li>
+        </ul>
+        <br>
+        <h1 class="title">Why?</h1>
+          <p>While building a project with Bulma, we found plenty of good HTML5 WYSIWYG editors online, but no one
+            was meant to work with Bulma.</p>
+        </p>
+        <br>
+        <h1 class="title">To-do</h1>
+        <p>bulma-wysiwyg is a very early-stage project. Any contributions are welcome, however the main points as of now are:</p>
+        <ul>
+          <li>Proper testing, including mobile browsers</li>
+          <li>Make toolbar customisable</li>
+          <li>Image support, including drag 'n drop</li>
+          <li>Trailing whitespace, empty divs and spans cleaning</li>
+          <li>Set colors, font face and size</li>
+        </ul>
+      </div>
+      <div class="column">
+        <h1 class="title">Usage</h1>
+        <p>Include Bulma, FontAwesome and bulma-wysiwyg:</p>
+        <textarea readonly class="textarea" rows="11">&lt;head&gt;
+            <!-- bulma -->
+            &lt;link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.0/css/bulma.min.css"&gt;
+
+            <!-- fontawesome -->
+            &lt;link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"&gt;
+
+            <!-- bulma-wysiwyg -->
+            &lt;link rel="stylesheet" href="https://cdn.rawgit.com/jesobreira/bulma-wysiwyg/dde4eb0e/css/bulma-wysiwyg.css"&gt;
+
+&lt;/head&gt;</textarea>
+        <p>Create your textarea:</p>
+        <textarea readonly class="textarea" rows="2">&lt;body&gt;
+          &lt;textarea id="editor"&gt;&lt;textarea&gt;</textarea>
+        <p>Include Bulma Javascript file (<b>jQuery is NOT required</b>) and initiate the editor:</p>
+        <textarea readonly class="textarea" rows="5">&lt;script src="https://cdn.rawgit.com/jesobreira/bulma-wysiwyg/dde4eb0e/js/bulma-wysiwyg.js"&gt;&lt;/script&gt
+&lt;script&gt;
+  var editor = bulma_wysiwyg('#editor');
+&lt;/script&gt
+&lt;/body&gt;</textarea>
+      <p>The editor contents get saved in real time to your textarea as HTML (encoded). This way you will not have problems with form submit.
+        To get the editor contents, just get your textarea contents (<code>document.getElementById('editor').innerHTML</code>).</p>
+      <p>If needed, here's how to disable bulma-wysiwyg and get back your textarea:</p>
+      <textarea readonly class="textarea" rows="1">editor.destroy();</textarea>
+      <br>
+      <p style="text-align: center">
+        <a href="https://github.com/jesobreira/bulma-wysiwyg" class="button is-link is-large">View project on Github</a>
+      </p>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdn.rawgit.com/jesobreira/bulma-wysiwyg/dde4eb0e/js/bulma-wysiwyg.js"></script>
+  <script>
+    var editor = bulma_wysiwyg('#editor');
+  </script>
+</body>
+</html>
